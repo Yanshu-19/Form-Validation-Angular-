@@ -1,0 +1,148 @@
+<nav>
+    <!-- <a routerLink="/app-home" routerLinkActive="active">Home</a> -->
+    <span> > </span>
+    <a routerLink="/app-form" routerLinkActive="active"> Form</a>
+</nav>
+<router-outlet></router-outlet>   
+    <div class="flex justify-center mt-16" [formGroup] = "userForm">
+        <div class="shadow border p-8" style="width: 1200px;">
+        <h2>Agency Information</h2>
+        <form action="">
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>1. Agency Legal Name</mat-label>
+            </div>
+            <div class="block-input">
+                <mat-form-field class="w-full">
+                    <mat-label>Clearable input</mat-label>
+                    <input type="text" matInput formControlName="agencyName">
+                </mat-form-field>
+                <div class="text-red-500 text-xs mt-1" *ngIf="userForm.controls['agencyName'].touched || userForm.controls['agencyName'].dirty">
+                    <span *ngIf="userForm.controls['agencyName'].errors?.['required']" >Please complete this question.</span>
+                </div>
+            </div>
+            </div>
+            
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>2. Agency Doing Business As (DBA) Name</mat-label>
+            </div>
+            <div class="block-input">
+                <mat-form-field class="w-full">
+                    <input type="text" matInput formControlName="agencyDBA">
+                </mat-form-field>
+                <div class="text-red-500 text-xs mt-1" *ngIf="userForm.controls['agencyDBA'].touched">
+                    <span *ngIf="userForm.controls['agencyDBA'].errors?.['required']" >Please complete this question.</span>
+                </div>
+            </div>
+            </div>
+    
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>3. Agency Type</mat-label>
+            </div>
+            <div class="block-input">
+                <mat-form-field class="w-full">
+                    <mat-select formControlName="agencyType">
+                        <mat-option value="valid">County/Local Government</mat-option>
+                        <mat-option value="valid">Municipal Authority</mat-option>
+                        <mat-option value="valid">Private For-Profit Corporation</mat-option>
+                        <mat-option value="valid">Private Non-Profit Corporation</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="text-red-500 text-xs mt-1" *ngIf="userForm.controls['agencyType'].touched">
+                    <span *ngIf="userForm.controls['agencyType'].errors?.['required']" >Please complete this question.</span>
+                </div>
+            </div>
+            </div>
+    
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>4. Agency Acryonm</mat-label>
+            </div>
+            <div class="block-input">
+                <mat-form-field class="w-full">
+                    <input type="text" matInput formControlName="agencyAcry">
+                </mat-form-field>
+            </div>
+            </div>
+            
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>5. Agency SAP Vendor Number</mat-label>
+            </div>
+            <div class="block-input">
+                <mat-form-field class="w-full">
+                    <input type="text" matInput formControlName="agencySAP">
+                </mat-form-field>
+            </div>
+            </div>
+    
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>6. Agency NTD ID</mat-label>
+            </div>
+            <div class="block-input">
+                <mat-form-field class="w-full">
+                    <input type="text" matInput formControlName="agencyNTD">
+                </mat-form-field>
+            </div>
+            </div>
+    
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>7. Agency UEI</mat-label>
+            </div>
+            <div class="block-input">
+                <mat-form-field class="w-full">
+                    <input type="text" matInput formControlName="agencyUEI">
+                </mat-form-field>
+            </div>
+            </div>
+    
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>8. Agency FEIN</mat-label>
+            </div>
+            <div class="block-input">
+                <mat-form-field class="w-full">
+                    <input type="text" matInput formControlName="agencyFEIN">
+                </mat-form-field>
+            </div>
+            </div>
+    
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>9. Agency Website</mat-label>
+            </div>
+            <div class="block-input">
+                <mat-form-field class="w-full">
+                    <input type="text" matInput formControlName="agencyWebsite">
+                </mat-form-field>
+                <div class="text-red-500 text-xs mt-1" *ngIf="userForm.controls['agencyWebsite'].touched">
+                    <span *ngIf="userForm.controls['agencyWebsite'].errors?.['required']" >Please complete this question.</span>
+                </div>
+            </div>
+            </div>
+    
+            <div class="flex flex-col">
+            <div class="mb-4">
+                <mat-label>10. Agency logo</mat-label>
+            </div>
+            <div class="block-input">
+                <!-- <mat-form-field class="w-full">
+                    <input type="text" matInput formControlName="agencyLogo">
+                </mat-form-field> -->
+                <div>
+                    <input type="file" name="image" (change)="onFileSelected($event)"/>
+                </div>
+            </div>
+            </div>
+            <div class="flex justify-center p-2">
+            <button mat-raised-button color="primary" class="!w-36" (click)="saveUser()" [disabled]="userForm.invalid"> Submit </button>
+            </div>
+        </form>
+    
+        </div>
+    
+    </div>
